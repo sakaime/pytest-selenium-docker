@@ -1,11 +1,11 @@
 # Usage
-コンテナに入る
+コンテナに入る。
 ```
 docker-compose up -d --build
 docker-compose exec pytest bash
 ```
 
-テストを実行する
+テストを実行する。
 ```
 pytest tests
 ```
