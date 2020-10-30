@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  browser:
+    image: selenium/standalone-${BROWSER:-chrome}:4.0.0-alpha-7-prerelease-20201009
+    container_name: browser
+    volumes:
+      - /dev/shm:/dev/shm
+    ports:
+      - 4444:4444
+      - 5900:5900
+  
+  pytest:
+    build:
+      context: ./
+      dockerfile: ./docker/pytest/Dockerfile
+    container_name: pytest
+    volumes:
+      - ./src:/root/src
+    tty: true
+      
